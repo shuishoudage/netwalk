@@ -57,7 +57,7 @@ class FileReader:
         get the data body, if header presents, skip header
         """
         for line in itertools.islice(self.fd, self.header, None):
-            fields = map(str.strip, line.rstrip().split(self.delimiter))
+            fields = list(map(str.strip, line.rstrip().split(self.delimiter)))
             yield fields
 
     def get_header(self):
