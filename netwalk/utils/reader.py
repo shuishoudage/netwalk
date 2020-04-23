@@ -1,4 +1,5 @@
 import itertools
+import os
 
 """This class is mainly to read text data files like tab, space or comma
 separated file format
@@ -42,12 +43,12 @@ class FileReader:
             indicates if header is presented on the given file
         """
         try:
-            self.fd = open(file_name)
+            self.fd = open(file_name, 'r')
         except IOError as e:
             raise e
         except PermissionError as e:
             raise e
-        if delimiter not in ", \t":
+        if delimiter not in ", " + os.linesep:
             raise ValueError("for delimiter, only space, comma, tab supported")
         self.delimiter = delimiter
         self.header = header
