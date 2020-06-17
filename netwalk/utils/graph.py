@@ -1,3 +1,12 @@
+#
+# Summary of your module
+# 
+# @Author: Terry Pan
+# @Date: Wed Jun 17 2020
+# @Email: pttdev123@gmail.com
+# @Last modified by: Terry Pan
+# @Last modified time: Wed Jun 17 2020 2:36:53 PM
+#
 from typing import Tuple, Dict, List, Set
 from collections import defaultdict
 
@@ -25,9 +34,15 @@ class Graph(object):
         self._nodes: Set[str] = set()
 
     def get_out_adj_list(self) -> Dict[str, List[str]]:
+        """
+        return the out neighbourhood list
+        """
         return self._out_adj_list
 
     def get_in_adj_list(self) -> Dict[str, List[str]]:
+        """
+        return the in neighbourhood list
+        """
         return self._in_adj_list
 
     def get_nodes_count(self) -> int:
@@ -55,7 +70,7 @@ class Graph(object):
     def _add_edge(self, edge: Tuple[str, str]):
         """
         an abstract parent class method, this method is used to check
-        the format of given edge
+        the format of the given edge
         """
         if not isinstance(edge, tuple):
             raise TypeError("edge must be in tuple")
@@ -65,11 +80,19 @@ class Graph(object):
             raise TypeError("edge value type must be string")
 
 
+"""
+The concrete class for graph
+DiGraph represents directional graph. Any edge added to this class has it's
+direction.
+"""
 class DiGraph(Graph):
     def __init__(self):
         super().__init__()
 
     def add_edge(self, edge: Tuple[str, str]):
+        """
+        adding directional edge to this graph
+        """        
         self._add_edge(edge)
         self._out_adj_list[edge[0]].append(edge[1])
         self._in_adj_list[edge[1]].append(edge[0])
@@ -77,11 +100,19 @@ class DiGraph(Graph):
         self.get_nodes().add(edge[1])
 
 
+"""
+The concrete class for graph
+UndiGraph represents undirectional graph. Any edge added to this class has been
+ignored with direction
+"""
 class UndiGraph(Graph):
     def __init__(self):
         super().__init__()
 
     def add_edge(self, edge: Tuple[str, str]):
+        """
+        adding undirectional edge to graph
+        """        
         self._add_edge(edge)
         self._out_adj_list[edge[0]].append(edge[1])
         self._in_adj_list[edge[0]].append(edge[1])
