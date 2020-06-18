@@ -1,3 +1,12 @@
+#
+# Enum of walk strategies
+#
+# @Author: Terry Pan
+# @Date: Wed Jun 17 2020
+# @Email: pttdev123@gmail.com
+# @Last modified by: Terry Pan
+# @Last modified time: Wed Jun 17 2020 4:33:53 PM
+#
 import enum
 
 """
