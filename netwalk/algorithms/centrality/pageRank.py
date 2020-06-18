@@ -1,6 +1,24 @@
+#
+# Summary of your module
+#
+# @Author: Terry Pan
+# @Date: Thu Jun 18 2020
+# @Email: pttdev123@gmail.com
+# @Last modified by: Terry Pan
+# @Last modified time: Thu Jun 18 2020 2:32:51 PM
+#
 from typing import Dict, List, Union, Tuple
 from netwalk.utils.graph import Graph, DiGraph, UndiGraph
 import copy
+
+"""
+PageRank Algorithm implementation
+
+Pagerank follows the similar idea in thesis system. The more valuable paper
+get more citations from other papers. What is more, When a famous paper
+references another not famous paper, that not famous paper becomes important
+as well.
+"""
 
 
 class PageRank:
