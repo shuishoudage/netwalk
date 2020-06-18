@@ -17,7 +17,7 @@ import operator
 """
 NeighbourhoodBasedSimilarity implementation
 
-NeighbourhoodBasedSimilarity algorithms are essentially different set operations
+NeighbourhoodBasedSimilarity algorithms are essentially different set operation
 The core idea behind these algorithms is similar nodes have same neightbours
 """
 
@@ -101,7 +101,9 @@ class NeighbourhoodBasedSimilarity:
         neighbours: List[str] = self.graph.get_out_adj_list()[node]
         return len(neighbours)
 
-    def compute_proximity_score(self, pair: Tuple[str, str, str], measure: Measure) -> Tuple[str, str, str, float]:
+    def compute_proximity_score(self, pair: Tuple[str, str, str],
+                                measure: Measure) -> \
+            Tuple[str, str, str, float]:
         """The entry method for calculate similarity score, what it does is
         actually called different similarity measure functions defined above
 
